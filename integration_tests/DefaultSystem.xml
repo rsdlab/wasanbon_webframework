@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<rts:RtsProfile rts:abstract="" rts:creationDate="2016-02-16T01:23:40" rts:id="RTSystem:Sugar Sweet Robotics:test_project01:1.0.3" rts:updateDate="2016-02-16T01:23:40" rts:version="0.2" xmlns:rts="http://www.openrtp.org/namespaces/rts" xmlns:rtsExt="http://www.openrtp.org/namespaces/rts_ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <rts:Components rts:compositeType="None" rts:id="RTC:Sugar Sweet Robotics:Test:TestIn_cpp:1.2.2" rts:instanceName="TestIn_cpp0" rts:isRequired="true" rts:pathUri="<IP address1>:2809/TestIn_cpp0.rtc" rtsExt:visible="true">
+        <rts:DataPorts rts:name="in" rtsExt:visible="true"/>
+        <rts:ConfigurationSets rts:id="default"/>
+        <rts:ExecutionContexts rts:id="0" rts:kind="PERIODIC" rts:rate="1000.0"/>
+        <rtsExt:Location rtsExt:direction="DOWN" rtsExt:height="0" rtsExt:width="0" rtsExt:x="0" rtsExt:y="0"/>
+        <rtsExt:Properties rtsExt:name="IOR" rtsExt:value="IOR:010000003500000049444c3a6f70656e72746d2e616973742e676f2e6a702f4f70656e52544d2f44617461466c6f77436f6d706f6e656e743a312e3000000000010000000000000064000000010102000d0000003139322e3136382e312e31310000fa0a0e000000fe66fbc15600007c34000000000000000200000000000000080000000100000000545441010000001c00000001000000010001000100000001000105090101000100000009010100"/>
+    </rts:Components>
+    <rts:Components rts:compositeType="None" rts:id="RTC:Sugar Sweet Robotics:Test:TestOut_cpp:1.2.2" rts:instanceName="TestOut_cpp0" rts:isRequired="true" rts:pathUri="<IP address2>:2809/TestOut_cpp0.rtc" rtsExt:visible="true">
+        <rts:DataPorts rts:name="out" rtsExt:visible="true"/>
+        <rts:ConfigurationSets rts:id="default"/>
+        <rts:ExecutionContexts rts:id="0" rts:kind="PERIODIC" rts:rate="1000.0"/>
+        <rtsExt:Location rtsExt:direction="DOWN" rtsExt:height="0" rtsExt:width="0" rtsExt:x="0" rtsExt:y="0"/>
+        <rtsExt:Properties rtsExt:name="IOR" rtsExt:value="IOR:010000003500000049444c3a6f70656e72746d2e616973742e676f2e6a702f4f70656e52544d2f44617461466c6f77436f6d706f6e656e743a312e3000000000010000000000000064000000010102000d0000003139322e3136382e312e31310000fa0a0e000000fe66fbc15600007c34000000000400000200000000000000080000000100000000545441010000001c00000001000000010001000100000001000105090101000100000009010100"/>
+    </rts:Components>
+    <rts:DataPortConnectors rts:connectorId="A32E44EB-6864-4BAB-B619-34AD52DE37F5" rts:dataType="IDL:RTC/TimedLong:1.0" rts:dataflowType="push" rts:interfaceType="corba_cdr" rts:name="outin" rts:pushInterval="0.0" rts:subscriptionType="new" rtsExt:visible="true">
+        <rts:sourceDataPort rts:componentId="RTC:Sugar Sweet Robotics:Test:TestOut_cpp:1.2.2" rts:instanceName="TestOut_cpp0" rts:portName="TestOut_cpp0.out">
+            <rtsExt:Properties rtsExt:name="COMPONENT_PATH_ID" rtsExt:value="<IP address2>:2809/TestOut_cpp0.rtc"/>
+        </rts:sourceDataPort>
+        <rts:targetDataPort rts:componentId="RTC:Sugar Sweet Robotics:Test:TestIn_cpp:1.2.2" rts:instanceName="TestIn_cpp0" rts:portName="TestIn_cpp0.in">
+            <rtsExt:Properties rtsExt:name="COMPONENT_PATH_ID" rtsExt:value="<IP address1>:2809/manager_cpp.mgr/TestIn_cpp0.rtc"/>
+        </rts:targetDataPort>
+        <rtsExt:Properties rtsExt:name="dataport.dataflow_type" rtsExt:value="push"/>
+        <rtsExt:Properties rtsExt:name="dataport.serializer.cdr.endian" rtsExt:value="little,big"/>
+        <rtsExt:Properties rtsExt:name="dataport.data_type" rtsExt:value="IDL:RTC/TimedLong:1.0"/>
+        <rtsExt:Properties rtsExt:name="dataport.interface_type" rtsExt:value="corba_cdr"/>
+        <rtsExt:Properties rtsExt:name="dataport.subscription_type" rtsExt:value="new"/>
+    </rts:DataPortConnectors>
+</rts:RtsProfile>

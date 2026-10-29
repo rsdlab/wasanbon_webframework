@@ -1,0 +1,103 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Wasanbon-Webframework"
+description = "Wasanbon Web framework"
+readme = "README.md"
+requires-python = "==3.8.*"
+license = {file = "COPYING"}
+authors = [
+    { name = "ysuga", email = "ysuga@ysuga.net" },
+]
+dependencies = [
+    "fastapi==0.87.0",
+    "uvicorn==0.19.0",
+    "chardet==5.0.0",
+    "paramiko==2.6.0",  # to adapt to wasanbon1.2
+    "psutil==5.8.0",  # to adapt to wasanbon1.2
+    "pyyaml==5.3.1",  # to adapt to wasanbon1.2
+    "pydantic==1.10.2",
+    "starlette==0.21.0"
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["wasanbon_webframework*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"*" = ["*.csv", "*.yml", "*.conf", "*.sh"]
+
+[tool.setuptools.dynamic]
+version = {attr = "wasanbon_webframework.__VERSION"}
+
+[project.urls]
+Homepage = "https://ogata-lab.jp/"
+Documentation = "http://<your_ip>:8000/docs"
+
+[project.optional-dependencies]
+dev = [
+    "pytest ==7.2.0",
+    "mypy ==0.991",
+    "pyproject-flake8 ==5.0.4.post1",
+    "isort ==5.10.1",
+    "black ==22.10.0",
+    "flake8-print ==5.0.0",
+    "pep8-naming ==0.13.2",
+    "flake8-docstrings ==1.6.0",
+    "httpx >=0.23.0,<0.24.0",
+    "types-chardet==5.0.4",
+    "types-paramiko==2.12.0.1",
+    "types-PyYAML==6.0.12.2"
+]
+all = [
+]
+
+[tool.flake8]
+max-line-length = 120
+exclude = "__init__.py,wasanbon_webframework/services/command_util.py"
+docstring-convention = "google"
+copyright-check = true
+copyright-min-file-size = 1
+select = [
+    "C",
+    "D",
+    "E",
+    "F",
+    "I",
+    "N",
+    "S",
+    "T",
+    "W"
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "E203",  # whitespace before ':'
+    "D107",
+    "D413",
+    "W503",
+    "C801"
+]
+
+[tool.isort]
+line_length=120
+profile = "black"
+known_third_party = ["fastapi", "pydantic", "starlette"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+follow_imports = "silent"
+show_column_numbers = true
+no_warn_return_any = true
+
+[tool.black]
+line-length=120
+
+[project.scripts]
+wasanbon-webframework = "wasanbon_webframework.main:main"
