@@ -35,10 +35,13 @@ Each RTC has ports as data-trasnporting endpoints, and a statemachine. To constr
 >  ```
 
 ```bash
-git clone https://github.com/wasanbon/wasanbon_webframework.git
-cd wasanbon-webframework-api
-pip install -U .
+git clone https://github.com/rsdlab/wasanbon_webframework.git
+cd wasanbon_webframework
+
+pip install --upgrade pip setuptools packaging importlib_metadata
+pip install . --no-build-isolation
 ```
+**Note:** Installation may fail due to dependency conflicts. Please check the dependency versions if you encounter any errors.
 
 ## Usage
 
